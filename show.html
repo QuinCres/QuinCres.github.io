@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf8">
+	<title>列表</title>
+</head>
+<body>
+	
+	<div align="center" vertical-align="middle">
+	<form>
+	标题: <input type = "text" name = "title"/>
+	<input type="button" name="add" value="提交" onclick="javascript:window.location.href='center.html' ">
+	<input type="button" name="reserch" value="查询">
+	</form>
+	</div>
+	</br>
+	<table border = "1" align = "center">
+		<tr bgcolor="#F0F0F0">
+			<td width = "150">编号</td>
+			<td width = "150">标题</td>
+			<td width = "250">发布时间</td>
+			<td width = "150">发布人</td>
+			<td width = "150">是否置顶</td>
+			<td width = "150">操作</td>
+		</tr>
+		<?php foreach($news as $k => $new): ?>
+		<tr>
+			<td><?php echo $k+1;?></td>
+			<td><?php echo $new['title'];?></td>
+			<td><?php date_default_timezone_set('Asia/Shanghai'); echo date('Y年m月d日 H时i分s秒',$new['pub_time']);?></td>
+			<td><?php echo $new['publiser'];?></td>
+			<td><?php echo $new['isTop'] == 1? '是' : '否';?></td>
+			<td></td>
+		</tr>
+		<?php endforeach;?>
+	</table>
+</body>
+</html>
